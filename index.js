@@ -5,10 +5,6 @@ const app = express()
 
 app.set('view engine', 'ejs')
 
-app.get('/', (req, res) => {
-
-    res.render('home')
-})
 
 app.get('/random', (req, res) => {
     const num = Math.floor(Math.random()*10)+1
@@ -16,7 +12,8 @@ app.get('/random', (req, res) => {
 })
 
 app.get('/cats', (req, res) => {
-    res.send('This is the cats page')
+    const cats = ['Rocky', 'Monite', 'Stephen', 'Spidy']
+    res.render('home', {cats})
 })
 
 app.get('/r/:subreddit', (req, res) => {
